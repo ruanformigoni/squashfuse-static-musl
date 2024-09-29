@@ -19,9 +19,6 @@ RUN LDFLAGS="-static"
 RUN CFLAGS="-Wl,-static -no-pie"
 RUN CXXFLAGS="-Wl,-static -no-pie"
 
-# Static libgcc
-RUN cd /usr/lib/gcc/x86_64-alpine-linux-musl/* && ln -s $(pwd)/libgcc.a $(pwd)/libgcc_s.a
-
 RUN ./autogen.sh
 RUN ./configure --enable-static --disable-shared LDFLAGS="-static"
 RUN make -j"$(nproc)"

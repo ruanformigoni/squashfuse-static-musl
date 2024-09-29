@@ -29,6 +29,3 @@ RUN make -j"$(nproc)"
 
 # Strip
 RUN strip -s -R .comment -R .gnu.version --strip-unneeded squashfuse
-
-# Compress
-RUN upx --ultra-brute --no-lzma squashfuse
